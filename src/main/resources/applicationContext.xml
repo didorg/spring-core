@@ -4,10 +4,33 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- Constructor-based DI (constructor-arg)-->
     <bean id="product" class="com.didorg.spring.core.bean.Product">  
         <constructor-arg name="id" value="str-1"/>
         <constructor-arg name="name" value="laptop"/>
         <constructor-arg name="description" value="Mac 16, core i9"/>
+    </bean>
+    
+    <!-- Important Note:
+    The Spring team generally advocates constructor injection, as it lets you implement application components as immutable objects 
+    and ensures that required dependencies are not null. 
+    Constructor-injected components are always returned to the client (calling) code in a fully initialized state.
+    -->
+    
+    <!-- Setter-base DI (property)-->
+    <!-- Bean Collaboration - Referencing other beans -->
+    <bean id="assistant" class="com.didorg.spring.core.bean.Assistant"> 
+        <property name="id" value="assist-01"/>
+        <property name="firstName" value="Ari"/>
+        <property name="lastName" value="Lu"/>
+        					<!-- Bean Collaboration -->
+        <property name="address" ref="address"/>
+    </bean>
+    
+    <bean id="address" class="com.didorg.spring.core.bean.Address">  
+        <constructor-arg name="street" value=" 7 Ave "/>
+        <constructor-arg name="area" value="NYC "/>
+        <constructor-arg name="zipCode" value="3409"/>
     </bean>
 
 </beans>
