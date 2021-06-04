@@ -1,29 +1,25 @@
 package com.didorg.spring.core.bean;
 
-public class Assistant {
+import java.util.List;
+
+public class Assistant extends Person{
+	
+	public Assistant(String firstName, String lastName) {
+		super(firstName, lastName);
+		
+		super.firstName = firstName;
+		super.lastName = lastName;
+	}
 	
 	private String id;
-	private String firstName;
-	private String lastName;
 	private Address address;
+	private List<Hobby> hobbies;
 	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 	
 	public Address getAddress() {
@@ -32,11 +28,17 @@ public class Assistant {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	@Override
-	public String toString() {
-		return "Assistant [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
-				+ "]";
+	
+	public List<Hobby> getHobbies() {
+		return hobbies;
 	}
 	
+	public void setHobbies(List<Hobby> hobbies) {
+		this.hobbies = hobbies;
+	}
+	@Override
+	public String toString() {
+		return "Assistant [id=" + id + ", address=" + address + ", hobbies=" + hobbies + "]";
+	}
 
 }

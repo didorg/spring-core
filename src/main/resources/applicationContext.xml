@@ -19,18 +19,37 @@
     
     <!-- Setter-base DI (property)-->
     <!-- Bean Collaboration - Referencing other beans -->
-    <bean id="assistant" class="com.didorg.spring.core.bean.Assistant"> 
+    <bean id="assistant" class="com.didorg.spring.core.bean.Assistant" parent="person"> 
         <property name="id" value="assist-01"/>
-        <property name="firstName" value="Ari"/>
-        <property name="lastName" value="Lu"/>
+        <constructor-arg name="firstName" value="Ari"/>
+        <constructor-arg name="lastName" value="Lu"/>
         <!-- Bean Collaboration -->
         <property name="address" ref="address"/>
+        <property name="hobbies">
+        	<list>
+        		<ref bean="hobby-coding"/>
+        		<ref bean="hobby-trading"/>
+        	</list>
+        </property>
     </bean>
     
     <bean id="address" class="com.didorg.spring.core.bean.Address">  
         <constructor-arg name="street" value=" 7 Ave "/>
         <constructor-arg name="area" value="NYC "/>
         <constructor-arg name="zipCode" value="3409"/>
+    </bean>
+    
+    <bean id="person" class="com.didorg.spring.core.bean.Person">  
+        <constructor-arg name="firstName" value=""/>
+        <constructor-arg name="lastName" value=""/>
+    </bean>
+    
+    <!-- Hobbies -->
+    <bean id="hobby-coding" class="com.didorg.spring.core.bean.Hobby"> 
+        <property name="hobbyName" value="Coding"/>
+    </bean>
+    <bean id="hobby-trading" class="com.didorg.spring.core.bean.Hobby"> 
+        <property name="hobbyName" value="Trading"/>
     </bean>
 
 </beans>
