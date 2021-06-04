@@ -23,7 +23,7 @@
         <property name="id" value="assist-01"/>
         <property name="firstName" value="Ari"/>
         <property name="lastName" value="Lu"/>
-        					<!-- Bean Collaboration -->
+        <!-- Bean Collaboration -->
         <property name="address" ref="address"/>
     </bean>
     
