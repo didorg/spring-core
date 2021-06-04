@@ -2,6 +2,7 @@ package com.didorg.spring.core;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.didorg.spring.core.bean.Assistant;
@@ -28,7 +29,11 @@ public class CoreApplication {
 		System.out.println(product);
 		System.out.println(customer);
 		System.out.println(assistant);
-
+		
+		
+		//Close the ApplicationContext
+		((AbstractApplicationContext) context).close();
+		((AbstractApplicationContext) confContext).close();
 	}
 
 }
