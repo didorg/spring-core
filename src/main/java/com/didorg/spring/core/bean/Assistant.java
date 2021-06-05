@@ -5,8 +5,6 @@ import java.util.List;
 public class Assistant extends Person{
 	
 	public Assistant(String firstName, String lastName) {
-		super(firstName, lastName);
-		
 		super.firstName = firstName;
 		super.lastName = lastName;
 	}
@@ -36,9 +34,11 @@ public class Assistant extends Person{
 	public void setHobbies(List<Hobby> hobbies) {
 		this.hobbies = hobbies;
 	}
+	
 	@Override
 	public String toString() {
-		return "Assistant [id=" + id + ", address=" + address + ", hobbies=" + hobbies + "]";
+		return "Assistant [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", address=" + address + ", hobbies=" + hobbies + "]";
 	}
 
 }

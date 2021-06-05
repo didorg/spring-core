@@ -39,9 +39,7 @@
         <constructor-arg name="zipCode" value="3409"/>
     </bean>
     
-    <bean id="person" class="com.didorg.spring.core.bean.Person">  
-        <constructor-arg name="firstName" value=""/>
-        <constructor-arg name="lastName" value=""/>
+    <bean id="person" class="com.didorg.spring.core.bean.Person">
     </bean>
     
     <!-- Hobbies -->
